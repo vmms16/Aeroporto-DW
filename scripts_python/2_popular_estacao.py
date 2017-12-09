@@ -1,7 +1,7 @@
 import MySQLdb
 import os
 
-diretorio = "/home/d3jota/Documentos/database-dw/"
+diretorio = "/home/d3jota/UFRPE/BSI/7_periodo/Datawarehousing/Aeroporto-DW/scripts_python/database-dw/"
 
 conn = MySQLdb.connect(host= "localhost",
                   user="root",
@@ -18,13 +18,10 @@ for root, dirs, filenames in os.walk(diretorio):
             codigo = primeira_linha[0]
             print(codigo)
             x = conn.cursor()
-            x.execute("""INSERT INTO `airport`.`Estacao` (`id`) VALUES (%s)""", [codigo])
+            x.execute("""INSERT INTO `airport`.`estacao` (`id`) VALUES (%s)""", [codigo])
             conn.commit()
         else:
             print("tam 1")
 
 
 conn.close()
-            
-
-

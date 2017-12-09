@@ -11,7 +11,7 @@ with open("siglas_empresas_aereas") as f:
     for linha in linhas:
         sigla, nome, DESCARTE, nacionalidade = linha.split('\t')
         x = conn.cursor()
-        x.execute("""INSERT INTO `airport`.`Empresa_Aerea` (`nome`, `sigla`) VALUES (%s, %s);""", (nome, sigla))
+        x.execute("""INSERT INTO `airport`.`empresa_aerea` (`nome`, `sigla`) VALUES (%s, %s);""", (nome, sigla))
         conn.commit()
 
 conn.close()
